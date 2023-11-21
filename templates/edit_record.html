@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/edit_record.css') }}">
+<body>
+    <div class="container">
+    <form method="POST">
+        <label for="symptoms">Symptoms</label>
+        <input type="text" name="symptoms" value="{{ record.symptoms }}"><br>
+
+        <label for="allergies">Allergies</label>
+        <input type="text" name="allergies" value="{{ record.allergies }}"><br>
+    
+        <label for="diagnosis">Diagnosis</label>
+        <input type="text" name="diagnosis" value="{{ record.diagnosis }}"><br>
+    
+        <label for="prescription">Prescription</label>
+        <input type="text" name="prescription" value="{{ record.prescription }}"><br>
+    
+        <input type="submit" value="Update">
+    </form>
+</div>
+    
+</body>
+{% endblock %}
+

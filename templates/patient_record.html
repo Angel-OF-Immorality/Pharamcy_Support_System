@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/patient_record.css') }}">
+<body>   
+    <h1>Patient Records for {{ patient_name }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Symptoms</th>
+                <th>Allergies</th>
+                <th>Diagnosis</th>
+                <th>Prescription</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in patient_record %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ record.symptoms }}</td>
+                    <td>{{ record.allergies }}</td>
+                    <td>{{ record.diagnosis }}</td>
+                    <td>{{ record.prescription }}</td>
+                    <td><a class="edit-button" href="{{ url_for('edit_record', record_id=record.patient_id) }}">Edit</a></td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+{% endblock %}

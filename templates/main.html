@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content%}
+
+<link rel="stylesheet" href={{url_for('static',filename='css/main.css')}}>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <h2 class="logo"><img src= "{{ url_for('static', filename='images/logo.jpeg') }}"alt="img"></h2>
+        <input type="checkbox" id="menu-toggler">
+        <label for="menu-toggler" id="hamburger-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </label>
+        <ul class="all-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="{{url_for('index')}}">Sign out</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="homepage" id="home">
+      <div class="content">
+        <div class="text">
+          <h1>Welcome to CSTT Pharmacy Support System</h1>
+          <p>
+            All-in-one app for Pharmacist. <br> To maintain everything at one place.</p>
+        </div>
+        <a href="#services">Our Services</a>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <p>Explore our services.</p>
+      <ul class="cards">
+        <li class="card">
+          <img src="{{ url_for('static', filename='images/record.png') }}" alt="img">
+          <a href = " {{url_for('unique_patients') }}"><h3> Manage Records</h3></a>
+          <p>Record of all patients</p>
+        </li>
+        <li class="card">
+          <img src= "{{ url_for('static', filename='images/patient.png') }}" alt="img">
+          <a href = "{{ url_for('addrecord') }}"><h3>Add a record</h3></a>
+          <p>Add a new record for patient.</p>
+        </li>     
+
+  </body>
+</html>
+{% endblock %}

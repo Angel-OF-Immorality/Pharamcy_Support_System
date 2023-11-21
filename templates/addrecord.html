@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/addrecord.css') }}">
+<body>
+    <div class="container">
+        <div class="addrecord form">
+          <header>Add new patient</header>
+          <form action="/addrecord" method = "post">
+            {{ template_form.hidden_tag()}}
+   
+            {{template_form.patient_name()}}
+    
+            {{ template_form.patient_email()}} 
+         
+            {{ template_form.patient_address()}}
+
+            {{ template_form.symptoms()}}
+            
+            {{template_form.allergies()}}
+
+            {{ template_form.diagnosis()}}
+
+            {{ template_form.prescription()}}
+            {{ template_form.submit(class = "btn btn-primary")}}
+          </form>
+        </div>
+        <div class="patient"></div>
+    </div>
+    
+    
+</body>
+
+
+{% endblock %}

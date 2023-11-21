@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/patients.css') }}">
+
+<body>
+    <header>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in unique_patients %}
+                <tr>
+                    <td>{{ loop.index }}</td>  
+                    <td><a href="{{ url_for('patient_record', patient_name=patient.patient_name) }}">{{ patient.patient_name }}</a></td>
+
+                    <td>{{ patient.patient_email }}</td>
+                    <td>{{ patient.patient_address }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}
+

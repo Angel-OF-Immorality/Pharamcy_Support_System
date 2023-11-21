@@ -1,0 +1,29 @@
+ {% extends "base.html" %}
+ {% block content %}
+
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+ 
+<body>
+    <div class="container">
+        <div class="login form">
+          <header>Login</header>
+          <form action="/main" method = "post">
+            {{ template_form.hidden_tag()}}
+                
+            {{template_form.username()}}
+                
+            {{ template_form.email()}} 
+               
+            {{ template_form.password()}}
+            {{ template_form.submit( class = "btn btn-primary")}}
+          </form>
+          <div class="signup">
+            <a href="{{url_for('register')}}"><span class="signup">Don't have an account?</span></a> 
+        </div>
+        <div class="gif-container">
+          <img src= "{{url_for('static',filename='images/icons8-lock.gif')}}"alt="GIF">
+        </div>
+    </div>
+
+</body>
+ {% endblock%}
